@@ -1,6 +1,6 @@
 .footer {
-  background: rgba(10, 10, 10, 0.8);
-  border-top: 1px solid rgba(102, 126, 234, 0.1);
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
   padding: 3rem 2rem 1.5rem;
   position: relative;
 }
@@ -12,7 +12,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #667eea, #764ba2, transparent);
+  background: var(--accent-primary);
 }
 
 .footer-container {
@@ -26,7 +26,7 @@
   gap: 3rem;
   padding-bottom: 2rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .footer-brand {
@@ -34,24 +34,21 @@
 }
 
 .footer-logo {
-  font-size: 2rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-main);
   margin-bottom: 1rem;
 }
 
 .footer-tagline {
-  color: #a0a0a0;
+  color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.6;
 }
 
 .footer-links h4,
 .footer-social h4 {
-  color: #fff;
+  color: var(--text-main);
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
@@ -67,7 +64,7 @@
 }
 
 .footer-links a {
-  color: #a0a0a0;
+  color: var(--text-muted);
   text-decoration: none;
   font-size: 0.95rem;
   transition: all 0.3s ease;
@@ -75,7 +72,7 @@
 }
 
 .footer-links a:hover {
-  color: #667eea;
+  color: var(--accent-primary);
   transform: translateX(5px);
 }
 
@@ -90,19 +87,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(102, 126, 234, 0.1);
+  background: var(--bg-main);
   border-radius: 50%;
-  color: #667eea;
+  color: var(--text-muted);
   font-size: 1.3rem;
   text-decoration: none;
-  border: 2px solid rgba(102, 126, 234, 0.2);
+  border: 1px solid var(--border-color);
   transition: all 0.3s ease;
 }
 
 .social-link:hover {
-  background: rgba(102, 126, 234, 0.2);
-  box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
-  border-color: #667eea;
+  background: rgba(217, 70, 239, 0.1);
+  box-shadow: 0 0 20px rgba(217, 70, 239, 0.2);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
 }
 
 .footer-bottom {

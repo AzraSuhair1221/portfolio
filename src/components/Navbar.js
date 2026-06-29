@@ -30,7 +30,7 @@ const Navbar = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="logo-text">FAS</span>
+          <span className="logo-text">Fathima Azra Suhair</span>
         </motion.div>
 
         <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
@@ -39,6 +39,9 @@ const Navbar = () => {
           </a>
           <a href="#about" onClick={() => scrollToSection('about')} className="navbar-link">
             About
+          </a>
+          <a href="#experience" onClick={() => scrollToSection('experience')} className="navbar-link">
+            Experience
           </a>
           <a href="#skills" onClick={() => scrollToSection('skills')} className="navbar-link">
             Skills

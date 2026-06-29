@@ -107,12 +107,17 @@ const Skills = () => {
                   <motion.div
                     key={skillIndex}
                     className="skill-item"
-                    whileHover={{ scale: 1.05, y: -5 }}
+                    whileHover={{ scale: 1.05, y: -5, boxShadow: `0 10px 30px ${skill.color}40`, borderColor: skill.color }}
                     transition={{ type: 'spring', stiffness: 300 }}
                   >
-                    <div className="skill-icon" style={{ color: skill.color }}>
+                    <motion.div 
+                      className="skill-icon" 
+                      style={{ color: skill.color }}
+                      animate={{ y: [0, -8, 0] }}
+                      transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, ease: 'easeInOut' }}
+                    >
                       {skill.icon}
-                    </div>
+                    </motion.div>
                     <div className="skill-name">{skill.name}</div>
                   </motion.div>
                 ))}

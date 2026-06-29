@@ -12,6 +12,10 @@ import eFineImg1 from '../assets/e-fine/Login.png';
 import eFineImg2 from '../assets/e-fine/add_fine.jpeg';
 import eFineImg3 from '../assets/e-fine/Driver_login.jpeg';
 import eFineImg4 from '../assets/e-fine/officer_home.jpeg';
+import portfolioImg from '../assets/portfolio/image.png';
+import petCareImg1 from '../assets/pet-care/image-1.png';
+import petCareImg2 from '../assets/pet-care/image-2.png';
+import petCareImg3 from '../assets/pet-care/image-3.png';
 
 // Project data
 const projects = [
@@ -29,7 +33,7 @@ const projects = [
       'Trained OCR models using Kaggle datasets',
     ],
     technologies: ['Tesseract OCR', 'Flutter', 'React.js', 'Node.js', 'MS SQL Server'],
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    gradient: 'rgba(217, 70, 239, 0.1)',
     images: [eFineImg1, eFineImg2, eFineImg3, eFineImg4],
   },
   {
@@ -46,7 +50,7 @@ const projects = [
       'Admin panel for management',
     ],
     technologies: ['Laravel', 'PHP', 'MySQL', 'Livewire', 'Tailwind CSS'],
-    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    gradient: 'rgba(217, 70, 239, 0.15)',
     images: [ecomWebImg1, ecomWebImg2],
   },
   {
@@ -63,8 +67,40 @@ const projects = [
       'Firebase Firestore database',
     ],
     technologies: ['Flutter', 'Dart', 'Firebase', 'Firestore', 'REST APIs'],
-    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    gradient: 'rgba(217, 70, 239, 0.2)',
     images: [ecomAppImg1, ecomAppImg2],
+  },
+  {
+    title: 'Personal Portfolio Website',
+    subtitle: 'React & Framer Motion',
+    description:
+      'A modern, interactive portfolio website designed to showcase my skills, projects, and professional experience. Built with React.js and Framer Motion, it features smooth scroll animations, a responsive design, and a striking dark theme with vibrant fuchsia accents.',
+    features: [
+      'Interactive scroll animations with Framer Motion',
+      'Dynamic typography and tech orbits',
+      'Fully responsive mobile-first design',
+      'Custom CSS variables for elegant theming',
+      'Dynamic hover effects and shadows',
+    ],
+    technologies: ['React.js', 'Framer Motion', 'CSS3', 'JavaScript'],
+    gradient: 'rgba(217, 70, 239, 0.25)',
+    images: [portfolioImg],
+  },
+  {
+    title: 'Pet Care Website',
+    subtitle: 'Laravel Pet Management Platform',
+    description:
+      'Developed a user-friendly pet care platform that simplifies pet management for both pet owners and veterinarians. It streamlines pet care for owners, veterinarians, and admins providing a comprehensive, accessible solution.',
+    features: [
+      'Vaccination Tracking & Appointment Scheduling',
+      'Vaccination Inventory Management for vets',
+      'QR Code Emergency Access to pet info',
+      'Vet-Pet Communication via secure chat',
+      'Online Pet Shop for supplies',
+    ],
+    technologies: ['Laravel', 'Filament', 'Jetstream', 'Crisp', 'Chatify'],
+    gradient: 'rgba(217, 70, 239, 0.2)',
+    images: [petCareImg1, petCareImg2, petCareImg3],
   },
 ];
 
@@ -73,7 +109,7 @@ const Projects = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  
+
   const [hoveredProject, setHoveredProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState({});
 
@@ -137,7 +173,7 @@ const Projects = () => {
           {projects.map((project, index) => {
             const imageIndex = currentImageIndex[index] || 0;
             const currentImage = project.images[imageIndex];
-            
+
             return (
               <motion.div
                 key={index}
@@ -150,9 +186,9 @@ const Projects = () => {
               >
                 <div className="project-header" style={{ background: project.gradient }}>
                   {project.images && project.images.length > 0 && (
-                    <img 
-                      src={currentImage} 
-                      alt={project.title} 
+                    <img
+                      src={currentImage}
+                      alt={project.title}
                       className="project-image"
                       onError={(e) => {
                         e.target.style.display = 'none';
@@ -163,29 +199,29 @@ const Projects = () => {
                   <div className="project-number" style={{ display: project.images && project.images.length > 0 ? 'none' : 'flex' }}>0{index + 1}</div>
                 </div>
 
-              <div className="project-content">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-subtitle">{project.subtitle}</p>
-                <p className="project-description">{project.description}</p>
+                <div className="project-content">
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-subtitle">{project.subtitle}</p>
+                  <p className="project-description">{project.description}</p>
 
-                <div className="project-features">
-                  <h4>Key Features:</h4>
-                  <ul>
-                    {project.features.map((feature, idx) => (
-                      <li key={idx}>{feature}</li>
+                  <div className="project-features">
+                    <h4>Key Features:</h4>
+                    <ul>
+                      {project.features.map((feature, idx) => (
+                        <li key={idx}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="project-tech">
+                    {project.technologies.map((tech, idx) => (
+                      <span key={idx} className="tech-tag">
+                        {tech}
+                      </span>
                     ))}
-                  </ul>
-                </div>
+                  </div>
 
-                <div className="project-tech">
-                  {project.technologies.map((tech, idx) => (
-                    <span key={idx} className="tech-tag">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Uncomment if you want to add links later
+                  {/* Uncomment if you want to add links later
                 <div className="project-links">
                   <motion.a
                     href="#"
@@ -205,8 +241,8 @@ const Projects = () => {
                   </motion.a>
                 </div>
                 */}
-              </div>
-            </motion.div>
+                </div>
+              </motion.div>
             );
           })}
         </div>

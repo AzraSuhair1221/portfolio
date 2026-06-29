@@ -28,11 +28,11 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // For now, just show a success message
     // You can integrate EmailJS or any other email service here
     setStatus('Message sent successfully! I\'ll get back to you soon.');
-    
+
     // Reset form
     setTimeout(() => {
       setFormData({
@@ -84,8 +84,8 @@ const Contact = () => {
           <motion.div className="contact-info" variants={itemVariants}>
             <h3>Let's Talk</h3>
             <p>
-              I'm currently available for freelance work and full-time opportunities. 
-              If you have a project that you want to get started, think you need my 
+              I'm currently available for freelance work and full-time opportunities.
+              If you have a project that you want to get started, think you need my
               help with something, or just fancy saying hey, then get in touch.
             </p>
 
@@ -103,7 +103,7 @@ const Contact = () => {
               </motion.a>
 
               <motion.a
-                href="https://github.com/asra1234"
+                href="https://github.com/azrasuhair1221"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-item"
@@ -112,7 +112,7 @@ const Contact = () => {
                 <FaGithub className="contact-icon" />
                 <div>
                   <div className="contact-label">GitHub</div>
-                  <div className="contact-value">@asra1234</div>
+                  <div className="contact-value">@AzraSuhair1221</div>
                 </div>
               </motion.a>
 

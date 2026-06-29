@@ -17,7 +17,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="footer-logo">FAS</h3>
+            <h3 className="footer-logo">Fathima Azra Suhair</h3>
             <p className="footer-tagline">Building the future, one line of code at a time</p>
           </motion.div>
 
@@ -48,7 +48,7 @@ const Footer = () => {
             <h4>Connect With Me</h4>
             <div className="social-links">
               <motion.a
-                href="https://github.com/asra1234"
+                href="https://github.com/azrasuhair1221"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
@@ -87,7 +87,7 @@ const Footer = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <p>
-            © {currentYear} Fathima Asra Suhair. Made with <FaHeart className="heart-icon" /> 
+            © {currentYear} Fathima Asra Suhair. Made with <FaHeart className="heart-icon" />
             using React.js
           </p>
         </motion.div>

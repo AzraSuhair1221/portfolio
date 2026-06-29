@@ -3,11 +3,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(10, 10, 10, 0.90);
-  backdrop-filter: blur(10px);
-  padding: 1rem 0;
+  background: rgba(9, 9, 9, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 1.2rem 0;
   z-index: 1001;
-  border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .navbar-container {
@@ -24,46 +24,43 @@
 }
 
 .logo-text {
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-main);
+  background: linear-gradient(270deg, var(--accent-primary), var(--accent-secondary), #ec4899, var(--accent-primary));
+  background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
+  animation: gradient-shift 5s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.logo-text span {
+  color: var(--accent-primary);
 }
 
 .navbar-menu {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
 }
 
 .navbar-link {
-  color: #fff;
+  color: var(--text-muted);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 1rem;
   position: relative;
   transition: color 0.3s ease;
 }
 
-.navbar-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  transition: width 0.3s ease;
-}
-
 .navbar-link:hover {
-  color: #667eea;
-}
-
-.navbar-link:hover::after {
-  width: 100%;
+  color: var(--accent-primary);
 }
 
 .hamburger {
@@ -76,13 +73,14 @@
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: #667eea;
+  background: var(--text-muted);
   border-radius: 3px;
   transition: all 0.3s ease;
 }
 
 .hamburger span.active:nth-child(1) {
   transform: rotate(45deg) translate(8px, 8px);
+  background: var(--accent-primary);
 }
 
 .hamburger span.active:nth-child(2) {
@@ -91,6 +89,7 @@
 
 .hamburger span.active:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -7px);
+  background: var(--accent-primary);
 }
 
 @media (max-width: 768px) {
@@ -104,7 +103,7 @@
     right: -100%;
     width: 100%;
     height: calc(100vh - 70px);
-    background: rgba(10, 10, 10, 0.98);
+    background: rgba(9, 9, 9, 0.98);
     flex-direction: column;
     justify-content: center;
     transition: right 0.3s ease;

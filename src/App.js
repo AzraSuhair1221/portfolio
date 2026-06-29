@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
@@ -9,39 +11,40 @@ import Footer from './components/Footer';
 import './App.css';
 
 function App() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      const mouseX = e.clientX / window.innerWidth;
-      const mouseY = e.clientY / window.innerHeight;
-      
-      const moveX = (mouseX - 0.5) * 50;
-      const moveY = (mouseY - 0.5) * 50;
-      
-      const stars1 = document.querySelector('.stars-layer-1');
-      const stars2 = document.querySelector('.stars-layer-2');
-      
-      if (stars1) {
-        stars1.style.transform = `translate(${moveX}px, ${moveY}px)`;
-      }
-      if (stars2) {
-        stars2.style.transform = `translate(${moveX * 0.5}px, ${moveY * 0.5}px)`;
-      }
+    const mouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
     };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
+    window.addEventListener("mousemove", mouseMove);
+    return () => window.removeEventListener("mousemove", mouseMove);
   }, []);
 
   return (
     <div className="App">
-      <div className="stars-layer-1"></div>
-      <div className="stars-layer-2"></div>
+      <motion.div className="progress-bar" style={{ scaleX }} />
+      <motion.div 
+        className="comet-tail"
+        animate={{ x: mousePosition.x - 15, y: mousePosition.y - 15 }}
+        transition={{ type: "spring", stiffness: 50, damping: 20, mass: 1.5 }}
+      />
+      <motion.div 
+        className="comet-head"
+        animate={{ x: mousePosition.x - 6, y: mousePosition.y - 6 }}
+        transition={{ type: "tween", ease: "backOut", duration: 0.05 }}
+      />
       <Navbar />
       <Hero />
       <About />
+      <Experience />
       <Skills />
       <Projects />
       <Contact />
